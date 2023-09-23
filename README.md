@@ -6,6 +6,7 @@ This template deploys a self-hosted version of [Chatwoot](https://www.chatwoot.c
 
 ## ✨ Features
 
+- Choice to deploy either the Community edition or the Enterprise edition (default is the Community Edition)
 - Chatwoot (worker and frontend in one service)
 - PostgreSQL
 - Redis

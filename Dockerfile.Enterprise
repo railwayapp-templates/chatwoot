@@ -2,6 +2,6 @@
 
 INCLUDE+ includes/Dockerfile.version
 
-FROM chatwoot/chatwoot:v${CW_VERSION}-ce
+FROM chatwoot/chatwoot:v${CW_VERSION}
 
 INCLUDE+ includes/Dockerfile.base
