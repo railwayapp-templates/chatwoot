@@ -1,7 +1,10 @@
-# syntax = edrevo/dockerfile-plus
+FROM chatwoot/chatwoot:v3.1.1
 
-INCLUDE+ includes/Dockerfile.version
+RUN apk add --no-cache multirun postgresql-client
 
-FROM chatwoot/chatwoot:v${CW_VERSION}
-
-INCLUDE+ includes/Dockerfile.base
+CMD pg_isready -h $PGHOST -p $PGPORT && \
+    bundle exec rails db:chatwoot_prepare && \
+    bundle exec rails db:migrate && \
+    multirun \
+    "bundle exec sidekiq -C config/sidekiq.yml" \
+    "bundle exec rails s -b 0.0.0.0 -p $PORT"
