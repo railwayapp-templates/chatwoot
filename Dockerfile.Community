@@ -1,4 +1,4 @@
-FROM chatwoot/chatwoot:v3.1.1
+FROM chatwoot/chatwoot:v3.1.1-ce
 
 RUN apk add --no-cache multirun postgresql-client
 
