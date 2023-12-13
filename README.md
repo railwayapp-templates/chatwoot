@@ -2,7 +2,7 @@
 
 This template deploys a self-hosted version of [Chatwoot](https://www.chatwoot.com/). Internally it uses a PostgreSQL database and Resdis to store the data.
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/ZBnDBU?referralCode=ySCnWl)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/chatwoot)
 
 ## ✨ Features
 
