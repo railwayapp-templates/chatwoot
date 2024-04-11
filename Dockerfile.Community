@@ -1,11 +1,10 @@
 # https://hub.docker.com/r/chatwoot/chatwoot/tags
 FROM chatwoot/chatwoot:latest-ce
 
-RUN apk add --no-cache multirun postgresql-client
+RUN apk add --no-cache parallel postgresql-client
 
-CMD pg_isready -h $PGHOST -p $PGPORT && \
-    bundle exec rails db:chatwoot_prepare && \
-    bundle exec rails db:migrate && \
-    multirun \
-    "bundle exec sidekiq -C config/sidekiq.yml" \
-    "bundle exec rails s -b 0.0.0.0 -p $PORT"
+COPY --chmod=755 start.sh ./
+
+ENTRYPOINT ["/bin/sh"]
+
+CMD ["start.sh"]
